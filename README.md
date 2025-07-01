@@ -13,11 +13,13 @@ A command-line task manager built with Python demonstrating:
 ### 1. Clone Repository
 
 git clone https://github.com/svtanig/seven-gen-task-management-app.git
+
 cd seven-gen-task-management-app
 
 ### 2. Create Virtual Environment
 
 python3 -m venv venv
+
 source venv/bin/activate  # on Windows use venv\Scripts\activate
 
 ### 3. Install Dependencies
@@ -33,7 +35,9 @@ Note: Ensure MongoDB is running locally.
 
 ### Run the App
 - Standard CLI
+
 python main.py
 
 - Concurrent CLI (Multithreaded)
+
 python cli_concurrent.py
