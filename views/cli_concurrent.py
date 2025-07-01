@@ -1,14 +1,24 @@
+import threading
+import time
 from controllers.task_controller import TaskController
 import datetime
 
 
-class CLI:
+class ConcurrentCLI:
     def __init__(self):
         self.controller = TaskController()
+        self.running = True
+        self.background_thread = threading.Thread(target=self.run_background_sync, daemon=True)
+        self.background_thread.start()
 
-    def menu(self):
-        while True:
-            print("\n--- Task Manager ---\n")
+    def run_background_sync(self):
+        while self.running:
+            # print("\n🔄 Background: Syncing tasks...")
+            time.sleep(10)  # Simulate background job
+
+    def menu(self): 
+        while self.running:
+            print("\n--- Task Manager (Concurrent) ---")
             print("1. Add Task")
             print("2. List Tasks")
             print("3. Update Task")
@@ -28,6 +38,7 @@ class CLI:
             elif choice == '5':
                 self.delete_task()
             elif choice == '6':
+                self.running = False
                 print("👋 Goodbye!")
                 break
             else:
@@ -290,5 +301,6 @@ class CLI:
 
 
     
+
 
 

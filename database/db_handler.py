@@ -8,6 +8,7 @@ from bson import ObjectId
 load_dotenv()
 
 class DBHandler:
+# Connect to MongoDB and handle CRUD operations
     def __init__(self):
         self.client = MongoClient(os.getenv("MONGO_URI"))
         self.db = self.client[os.getenv("DB_NAME")] #from .env

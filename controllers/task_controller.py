@@ -3,6 +3,10 @@
 from database.db_handler import DBHandler
 from models.task import Task
 
+# TaskController handles the business logic for task management
+# It interacts with the DBHandler to perform CRUD operations on tasks
+# It also serves as an interface for the CLI to interact with tasks
+# This class is responsible for creating, listing, updating, deleting, and marking tasks as completed
 class TaskController:
     def __init__(self):
         self.db = DBHandler()
